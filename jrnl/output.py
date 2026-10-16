@@ -136,7 +136,9 @@ def format_msg_text(msg: Message) -> Text:
 def wrap_with_ansi_colors(text: str, width: int) -> str:
     richtext = Text.from_ansi(text, no_wrap=False, tab_size=None)
 
-    console = Console(width=width, force_terminal=True)
+    # This console only captures ANSI text in memory. Legacy Windows mode can
+    # subtract a column when LINES is set, changing the requested wrap width.
+    console = Console(width=width, force_terminal=True, legacy_windows=False)
     with console.capture() as capture:
         console.print(richtext, sep="", end="")
     return capture.get()

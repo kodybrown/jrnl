@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/jrnl-org/jrnl/compare/v4.6...HEAD)
 
+**Fixed bugs:**
+
+- Preserve the requested journal wrap width when the Windows terminal sets `LINES`. Disable legacy console adjustments for in-memory ANSI capture and cover terminal height and legacy detection with regression tests. Verified with lint, formatting, and 695 tests passed with 44 skipped, including a full run with `LINES=40`.
+
 **Documentation:**
 
 - Document Windows PowerShell setup and local builds with uv and Poetry. Verified on Python 3.14.7: lint and formatting checks, 691 tests passed with 44 skipped, wheel and source builds, and an isolated wheel installation smoke check.
