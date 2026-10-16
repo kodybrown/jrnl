@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/jrnl-org/jrnl/compare/v4.6...HEAD)
 
+**Documentation:**
+
+- Document Windows PowerShell setup and local builds with uv and Poetry. Verified on Python 3.14.7: lint and formatting checks, 691 tests passed with 44 skipped, wheel and source builds, and an isolated wheel installation smoke check.
+
 **Packaging:**
 
 - Update dependency ruff to v0.16.2 [\#2109](https://github.com/jrnl-org/jrnl/pull/2109) ([renovate[bot]](https://github.com/apps/renovate))

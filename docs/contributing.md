@@ -72,6 +72,26 @@ When discussing new features, please keep in mind our design goals. jrnl strives
 
 You will need to install [poetry](https://python-poetry.org/) to develop jrnl. It will take care of all of the project's other dependencies.
 
+#### Windows PowerShell with uv
+
+If you have Git and uv installed, you can run Poetry through uv without installing it globally. From the repository root, create a virtual environment and install the locked dependencies:
+
+```powershell
+uv venv --python 3.14 .venv
+uv tool run --from poetry==2.4.1 poetry sync
+```
+
+Build the wheel and source archive in `dist/`, run the full lint and test suite, and check the local command:
+
+```powershell
+uv tool run --from poetry==2.4.1 poetry build
+uv tool run --from poetry==2.4.1 poetry run poe test
+.\.venv\Scripts\jrnl.cmd --version
+.\.venv\Scripts\jrnl.cmd --help
+```
+
+Poetry's editable installation creates a `jrnl.cmd` launcher on Windows. These commands do not require activating the environment. The `--version` and `--help` commands exit before loading a journal; running `jrnl` without arguments starts the interactive journal workflow.
+
 ### Understanding the branches
 
 jrnl uses two primary branches:
